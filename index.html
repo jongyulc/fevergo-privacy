@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy · FeverGo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #F0F2F5;
+      --card:        #FFFFFF;
+      --coral:       #F4736A;
+      --coral-light: #FDF1F0;
+      --text:        #1A1A2E;
+      --secondary:   #666D7A;
+      --border:      #E8EAF0;
+      --shadow:      0 4px 16px rgba(0,0,0,0.06);
+      --radius:      16px;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── 발열 그라디언트 바 ── */
+    .fever-bar {
+      height: 4px;
+      background: linear-gradient(90deg, #4DD9AC 0%, #F4B942 35%, #F4736A 65%, #D63B3B 100%);
+    }
+
+    /* ── 헤더 ── */
+    header {
+      background: var(--card);
+      box-shadow: var(--shadow);
+      padding: 32px 24px 24px;
+      text-align: center;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--coral);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .logo-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.5px;
+    }
+
+    header h1 {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--secondary);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    /* ── 언어 토글 ── */
+    .lang-toggle {
+      display: inline-flex;
+      background: var(--bg);
+      border-radius: 50px;
+      padding: 4px;
+      gap: 2px;
+    }
+
+    .lang-btn {
+      border: none;
+      background: transparent;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--secondary);
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .lang-btn.active {
+      background: var(--coral);
+      color: #fff;
+    }
+
+    /* ── 메인 ── */
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+    }
+
+    /* ── 메타 배너 ── */
+    .meta-banner {
+      background: var(--coral-light);
+      border-left: 3px solid var(--coral);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 28px;
+      font-size: 13px;
+      color: var(--secondary);
+    }
+
+    .meta-banner strong { color: var(--coral); }
+
+    /* ── 카드 ── */
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      margin-bottom: 16px;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .section-num {
+      width: 28px;
+      height: 28px;
+      background: var(--coral);
+      color: #fff;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .card h2 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.3px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: var(--secondary);
+      margin-bottom: 10px;
+    }
+
+    .card p:last-child { margin-bottom: 0; }
+
+    /* ── 데이터 그룹 ── */
+    .data-group { margin-bottom: 16px; }
+    .data-group:last-child { margin-bottom: 0; }
+
+    .data-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--coral);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 8px;
+    }
+
+    .data-items { display: flex; flex-direction: column; gap: 6px; }
+
+    .data-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--secondary);
+    }
+
+    .data-item::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--coral);
+      border-radius: 50%;
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+
+    /* ── 서비스 목록 ── */
+    .service-list { display: flex; flex-direction: column; gap: 12px; }
+
+    .service-item {
+      background: var(--bg);
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+
+    .service-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .service-desc { font-size: 13px; color: var(--secondary); }
+    .service-desc a { color: var(--coral); }
+
+    /* ── 경고 박스 ── */
+    .alert-box {
+      background: var(--coral-light);
+      border-radius: 10px;
+      padding: 16px;
+      font-size: 14px;
+      color: var(--secondary);
+    }
+
+    .alert-box strong {
+      color: var(--coral);
+      display: block;
+      margin-bottom: 6px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── 연락처 카드 ── */
+    .contact-card {
+      background: var(--text);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      text-align: center;
+    }
+
+    .contact-card h2 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .contact-card p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 20px;
+    }
+
+    .contact-email {
+      display: inline-block;
+      background: var(--coral);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 12px 24px;
+      border-radius: 50px;
+      transition: opacity 0.2s;
+    }
+
+    .contact-email:hover { opacity: 0.85; }
+
+    /* ── 푸터 ── */
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+      color: var(--secondary);
+    }
+
+    footer a { color: var(--coral); text-decoration: none; }
+
+    /* ── 언어 전환 ── */
+    [data-lang] { display: none; }
+    .lang-en [data-lang="en"] { display: block; }
+    .lang-en [data-lang="en"].data-item { display: flex; }
+    .lang-ko [data-lang="ko"] { display: block; }
+    .lang-ko [data-lang="ko"].data-item { display: flex; }
+
+    /* 인라인 요소 처리 */
+    span[data-lang] { display: none; }
+    .lang-en span[data-lang="en"] { display: inline; }
+    .lang-ko span[data-lang="ko"] { display: inline; }
+
+    /* ── 반응형 ── */
+    @media (max-width: 480px) {
+      header { padding: 24px 16px 20px; }
+      .card { padding: 20px; }
+      main { padding: 20px 14px 48px; }
+    }
+  </style>
+</head>
+<body class="lang-en">
+
+  <div class="fever-bar"></div>
+
+  <header>
+    <div class="logo">
+      <div class="logo-icon">🍁</div>
+      <span class="logo-name">FeverGo</span>
+    </div>
+    <h1>
+      <span data-lang="en">Privacy Policy</span>
+      <span data-lang="ko">개인정보 처리방침</span>
+    </h1>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('ko')">한국어</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- 메타 배너 -->
+    <div class="meta-banner">
+      <span data-lang="en">
+        <strong>Last updated: July 1, 2026</strong> &nbsp;·&nbsp;
+        Effective: July 1, 2026 &nbsp;·&nbsp;
+        Jurisdiction: Canada (PIPEDA)
+      </span>
+      <span data-lang="ko">
+        <strong>최종 수정: 2026년 7월 1일</strong> &nbsp;·&nbsp;
+        시행일: 2026년 7월 1일 &nbsp;·&nbsp;
+        적용 법률: 캐나다 개인정보보호법 (PIPEDA)
+      </span>
+    </div>
+
+    <!-- 1. 수집하는 정보 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="section-num">1</div>
+        <h2>
+          <span data-lang="en">Information We Collect</span>
+          <span data-lang="ko">수집하는 개인정보</span>
+        </h2>
+      </div>
+
+      <div class="data-group">
+        <div class="data-label">
+          <span data-lang="en">Account</span>
+          <span data-lang="ko">계정 정보</span>
+        </div>
+        <div class="data-items">
+          <div class="data-item" data-lang="en">Email address (used for sign-in only)</div>
+          <div class="data-item" data-lang="ko">이메일 주소 (로그인 용도로만 사용)</div>
+        </div>
+      </div>
+
+      <div class="data-group">
+        <div class="data-label">
+          <span data-lang="en">Child Profile</span>
+          <span data-lang="ko">자녀 프로필</span>
+        </div>
+        <div class="data-items">
+          <div class="data-item" data-lang="en">Name, date of birth, weight</div>
+          <div class="data-item" data-lang="en">Allergy information</div>
+          <div class="data-item" data-lang="ko">자녀 이름, 생년월일, 체중</div>
+          <div class="data-item" data-lang="ko">알레르기 정보</div>
+        </div>
+      </div>
+
+      <div class="data-group">
+        <div class="data-label">
+          <span data-lang="en">Health Records</span>
+          <span data-lang="ko">건강 기록</span>
+        </div>
+        <div class="data-items">
+          <div class="data-item" data-lang="en">Temperature logs — value, measurement site, timestamp</div>
+          <div class="data-item" data-lang="en">Symptom records — cough, runny nose, rash, and other selected items</div>
+          <div class="data-item" data-lang="en">Medication logs — medication type, dosage, time administered</div>
+          <div class="data-item" data-lang="en">Vaccination records</div>
+          <div class="data-item" data-lang="ko">체온 기록 — 온도, 측정 부위, 측정 시간</div>
+          <div class="data-item" data-lang="ko">증상 기록 — 기침, 콧물, 발진 등 선택 항목</div>
+          <div class="data-item" data-lang="ko">복약 기록 — 약 종류, 용량, 복용 시간</div>
+          <div class="data-item" data-lang="ko">예방접종 기록</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. 이용 목적 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="section-num">2</div>
+        <h2>
+          <span data-lang="en">How We Use Your Information</span>
+          <span data-lang="ko">개인정보 이용 목적</span>
+        </h2>
+      </div>
+      <div class="data-items">
+        <div class="data-item" data-lang="en">Track your child's fever and monitor temperature changes over time</div>
+        <div class="data-item" data-lang="en">Provide fever level guidance based on Alberta Health Services (AHS) guidelines</div>
+        <div class="data-item" data-lang="en">Automatically calculate medication dosage based on your child's weight</div>
+        <div class="data-item" data-lang="en">Send local medication reminders and timers</div>
+        <div class="data-item" data-lang="en">Generate health summaries to support doctor visits</div>
+        <div class="data-item" data-lang="ko">자녀 발열 추적 및 체온 변화 모니터링</div>
+        <div class="data-item" data-lang="ko">Alberta Health Services (AHS) 기준 기반 발열 단계 안내</div>
+        <div class="data-item" data-lang="ko">체중 기반 복약 용량 자동 계산</div>
+        <div class="data-item" data-lang="ko">복약 타이머 및 로컬 알림 제공</div>
+        <div class="data-item" data-lang="ko">의료진 방문 전 건강 기록 요약 제공</div>
+      </div>
+    </div>
+
+    <!-- 3. 제3자 서비스 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="section-num">3</div>
+        <h2>
+          <span data-lang="en">Third-Party Services</span>
+          <span data-lang="ko">제3자 서비스</span>
+        </h2>
+      </div>
+      <p data-lang="en">We do not sell or share your personal data with third parties. We use the following services to operate the app:</p>
+      <p data-lang="ko">수집된 개인정보는 제3자에게 제공하거나 판매하지 않습니다. 앱 운영을 위해 아래 서비스를 사용합니다:</p>
+      <div class="service-list">
+        <div class="service-item">
+          <div class="service-name">Supabase</div>
+          <div class="service-desc" data-lang="en">Authentication and health data storage.</div>
+          <div class="service-desc" data-lang="ko">인증 및 건강 데이터 저장.</div>
+        </div>
+        <div class="service-item">
+          <div class="service-name">Google AdMob</div>
+          <div class="service-desc" data-lang="en">In-app advertising. AdMob may collect device identifiers for ad delivery. See <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</div>
+          <div class="service-desc" data-lang="ko">인앱 광고 서비스. AdMob은 광고 제공을 위해 기기 식별자를 수집할 수 있습니다. <a href="https://policies.google.com/privacy">Google 개인정보처리방침</a> 참고.</div>
+        </div>
+        <div class="service-item">
+          <div class="service-name">Amazon Associates</div>
+          <div class="service-desc" data-lang="en">Contextual product recommendation links. Tapping a link opens Amazon.ca in your browser.</div>
+          <div class="service-desc" data-lang="ko">문맥형 제품 추천 링크. 링크 탭 시 Amazon.ca가 브라우저에서 열립니다.</div>
+        </div>
+        <div class="service-item">
+          <div class="service-name">flutter_local_notifications</div>
+          <div class="service-desc" data-lang="en">Local medication reminders scheduled on your device. No data is sent to any server.</div>
+          <div class="service-desc" data-lang="ko">기기 내 로컬 복약 알림. 서버로 데이터가 전송되지 않습니다.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. 건강 데이터 보호 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="section-num">4</div>
+        <h2>
+          <span data-lang="en">Health Data Protection</span>
+          <span data-lang="ko">건강 데이터 보호</span>
+        </h2>
+      </div>
+      <div class="data-items">
+        <div class="data-item" data-lang="en">All data is stored in encrypted form on Canadian servers</div>
+        <div class="data-item" data-lang="en">Health data is never used for ad targeting</div>
+        <div class="data-item" data-lang="en">Health data is never shared with healthcare providers or third parties</div>
+        <div class="data-item" data-lang="en">Access is protected by Row Level Security — only you can access your data</div>
+        <div class="data-item" data-lang="ko">모든 데이터는 암호화된 상태로 캐나다 서버에 저장</div>
+        <div class="data-item" data-lang="ko">건강 데이터는 광고 타겟팅에 절대 사용되지 않음</div>
+        <div class="data-item" data-lang="ko">의료기관 및 제3자와 공유되지 않음</div>
+        <div class="data-item" data-lang="ko">Row Level Security 적용 — 본인만 본인 데이터에 접근 가능</div>
+      </div>
+    </div>
+
+    <!-- 5. 보유 및 삭제 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="section-num">5</div>
+        <h2>
+          <span data-lang="en">Data Retention &amp; Deletion</span>
+          <span data-lang="ko">데이터 보유 및 삭제</span>
+        </h2>
+      </div>
+      <p data-lang="en">All child profiles and health records are permanently deleted when you delete your account.</p>
+      <p data-lang="en">To delete your account: <strong>App Settings → Account → Delete Account</strong></p>
+      <p data-lang="ko">회원 탈퇴 시 자녀 프로필 및 모든 건강 기록이 즉시 삭제됩니다.</p>
+      <p data-lang="ko">계정 삭제: <strong>앱 설정 → 계정 → 회원 탈퇴</strong></p>
+    </div>
+
+    <!-- 6. 아동 개인정보 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="section-num">6</div>
+        <h2>
+          <span data-lang="en">Children's Privacy</span>
+          <span data-lang="ko">아동 개인정보</span>
+        </h2>
+      </div>
+      <p data-lang="en">FeverGo is designed for parents and guardians. Health information is entered by the parent or guardian on behalf of their child. The app is not intended to be used independently by children, and we do not allow children under 13 to create accounts.</p>
+      <p data-lang="ko">FeverGo는 부모 및 보호자를 위한 앱입니다. 자녀의 건강 정보는 보호자가 직접 입력하며, 자녀 본인이 독립적으로 사용하는 것을 전제하지 않습니다. 13세 미만 아동의 독립적인 계정 생성을 허용하지 않습니다.</p>
+    </div>
+
+    <!-- 7. 의료 면책 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="section-num">7</div>
+        <h2>
+          <span data-lang="en">Medical Disclaimer</span>
+          <span data-lang="ko">의료 면책 조항</span>
+        </h2>
+      </div>
+      <div class="alert-box">
+        <strong data-lang="en">⚠️ Important</strong>
+        <strong data-lang="ko">⚠️ 중요</strong>
+        <span data-lang="en">FeverGo is for informational purposes only. It is not a medical diagnostic tool and does not replace the advice of a healthcare professional. In case of emergency, call <strong>911</strong> or contact AHS Health Link at <strong>811</strong>.</span>
+        <span data-lang="ko">FeverGo는 정보 제공 목적으로만 사용됩니다. 의료 진단 도구가 아니며, 의료 전문가의 조언을 대체하지 않습니다. 응급 상황 시 <strong>911</strong>에 연락하거나 AHS Health Link <strong>811</strong>을 이용하세요.</span>
+      </div>
+    </div>
+
+    <!-- 연락처 -->
+    <div class="contact-card">
+      <h2>
+        <span data-lang="en">Questions about your privacy?</span>
+        <span data-lang="ko">개인정보 관련 문의</span>
+      </h2>
+      <p data-lang="en">We're happy to help with any privacy-related questions.</p>
+      <p data-lang="ko">개인정보 관련 문의사항이 있으시면 아래로 연락해 주세요.</p>
+      <a href="mailto:nomad.jleelab@gmail.com" class="contact-email">nomad.jleelab@gmail.com</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2026 JLeeLab &nbsp;·&nbsp; <a href="https://github.com/jongyulc">GitHub</a></p>
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      document.body.className = 'lang-' + lang;
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang || 
+          (lang === 'ko' && btn.textContent.trim() === '한국어'));
+      });
+    }
+  </script>
+
+</body>
+</html>
